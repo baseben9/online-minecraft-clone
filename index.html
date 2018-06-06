@@ -63,7 +63,7 @@
 
 				// roll-over helpers
 
-				var rollOverGeo = new THREE.BoxGeometry( 50,50,50 );
+				var rollOverGeo = new THREE.BoxGeometry( 50, 50, 50 );
 				rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
 				rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
 				scene.add( rollOverMesh );
@@ -140,7 +140,7 @@
 					var intersect = intersects[ 0 ];
 
 					rollOverMesh.position.copy( intersect.point ).add( intersect.face.normal );
-					rollOverMesh.position.divideScalar( 16 ).floor().multiplyScalar( 16 ).addScalar( 8 );
+					rollOverMesh.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
 
 				}
 
