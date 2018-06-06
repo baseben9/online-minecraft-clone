@@ -68,7 +68,7 @@
 				// cubes
 
 				cubeGeo = new THREE.BoxGeometry( 16, 16, 16 );
-    cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( "gravel.png" ) } );
+    cubeMaterial = new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( "textures/gravel.png" ) } );
 
 				// grid
 
@@ -217,7 +217,7 @@
 function setImage() {
 var e = document.getElementById("blk");
 var value = e.options[e.selectedIndex].value;
-     texture = THREE.ImageUtils.loadTexture('/textures/' + value + '.png');
+     texture = THREE.ImageUtils.loadTexture('textures/' + value + '.png');
      cubeMaterial = new THREE.MeshBasicMaterial({map: texture});
 }
 
