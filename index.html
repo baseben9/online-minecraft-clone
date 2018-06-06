@@ -51,7 +51,13 @@
 				info.innerHTML = "Tab to the dropdown to change the block type<br><strong>click</strong>: add voxel, <strong>shift + click</strong>: remove voxel<br><select onchange='setImage()' id='blk'><option value='andesite_smooth'>andesite_smooth</option><option value='clay'>clay</option><option value='coal_block'>coal_block</option><option value='coal_ore'>coal_ore</option><option value='cobblestone'>cobblestone</option><option value='cobblestone_mossy'>cobblestone_mossy</option><option value='diamond_block'>diamond_block</option><option value='diamond_ore'>diamond_ore</option><option value='diorite_smooth'>diorite_smooth</option><option value='emerald_block'>emerald_block</option><option value='emerald_ore'>emerald_ore</option><option value='glass'>glass</option><option value='gold_block'>gold_block</option><option value='gold_ore'>gold_ore</option><option value='granite_smooth'>granite_smooth</option><option value='gravel'>gravel</option><option value='ice'>ice</option><option value='iron_bars'>iron_bars</option><option value='iron_block'>iron_block</option><option value='iron_ore'>iron_ore</option><option value='leaves'>leaves</option><option value='log_acacia'>log_acacia</option><option value='log_big_oak'>log_big_oak</option><option value='log_birch'>log_birch</option><option value='log_jungle'>log_jungle</option><option value='log_oak'>log_oak</option><option value='log_spruce'>log_spruce</option><option value='melon'>melon</option><option value='pumpkin'>pumpkin</option><option value='quartz'>quartz</option><option value='sand'>sand</option><option value='sandstone'>sandstone</option><option value='smoothstone'>smoothstone</option><option value='steel_frame'>steel_frame</option><option value='stone'>stone</option><option value='tnt'>tnt</option><option value='grass'>grass</option><optgroup label='update 2.0'><option value='brick'>brick</option><option value='netherrack'>netherrack</option><option value='obsidian'>obsidian</option><option value='planks_acacia'>planks_acacia</option><option value='planks_big_oak'>planks_big_oak</option><option value='planks_birch'>planks_birch</option><option value='planks_jungle'>planks_jungle</option><option value='planks_oak'>planks_oak</option><option value='planks_spruce'>planks_spruce</option><option value='red_sandstone_bottom'>red_sandstone_bottom</option></optgroup></select>";
 				container.appendChild( info );
 var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-camera.position.set( 500, 800, 1300 );
+
+var controls = new THREE.OrbitControls( camera );
+
+//controls.update() must be called after any manual changes to the camera's transform
+camera.position.set( 0, 20, 100 );
+controls.update();
+		
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xf0f0f0 );
 
@@ -209,7 +215,6 @@ camera.position.set( 500, 800, 1300 );
 
 			function render() {
 				renderer.render( scene, camera );
-		
 			}
 			
 		
