@@ -52,7 +52,9 @@
 				container.appendChild( info );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+				var controls = new THREE.OrbitControls( camera );
 				camera.position.set( 500 , 800 , 1300 );
+				controls.update();
 				camera.lookAt( new THREE.Vector3() );
   		
 		
