@@ -52,9 +52,9 @@
 				container.appendChild( info );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-				controls = new THREE.OrbitControls( camera );
+			
 				camera.position.set( 500 , 800 , 1300 );
-				controls.update();
+			
 				camera.lookAt( new THREE.Vector3() );
   		
 		
@@ -63,19 +63,19 @@
 
 				// roll-over helpers
 
-				var rollOverGeo = new THREE.BoxGeometry( 16, 16, 16 );
+				var rollOverGeo = new THREE.BoxGeometry( 50,50,50 );
 				rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
 				rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
 				scene.add( rollOverMesh );
 
 				// cubes
 
-				cubeGeo = new THREE.BoxGeometry( 16, 16, 16 );
+				cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
     cubeMaterial = new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( "textures/gravel.png" ) } );
 
 				// grid
 
-				var gridHelper = new THREE.GridHelper( 1600, 100 );
+				var gridHelper = new THREE.GridHelper( 1000, 20 );
 				scene.add( gridHelper );
 
 				//
@@ -83,7 +83,7 @@
 				raycaster = new THREE.Raycaster();
 				mouse = new THREE.Vector2();
 
-				var geometry = new THREE.PlaneBufferGeometry( 1600, 1600 );
+				var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
 				geometry.rotateX( - Math.PI / 2 );
 
 				plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( "textures/grass.png" ) } ) );
@@ -215,7 +215,6 @@
 
 			function render() {
 				renderer.render( scene, camera );
-				controls.update();
 			}
 			
 		
