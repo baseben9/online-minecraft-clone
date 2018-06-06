@@ -81,10 +81,10 @@
 				raycaster = new THREE.Raycaster();
 				mouse = new THREE.Vector2();
 
-				var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
+				var geometry = new THREE.PlaneBufferGeometry( 1600, 1600 );
 				geometry.rotateX( - Math.PI / 2 );
 
-				plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
+				plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( "textures/gravel.png" ) } );
 				scene.add( plane );
 
 				objects.push( plane );
