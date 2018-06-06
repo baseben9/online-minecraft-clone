@@ -52,10 +52,7 @@
 				container.appendChild( info );
 var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
 camera.lookAt(new THREE.Vector3(0,0,0));
-var controls = new THREE.OrbitControls( camera );
 camera.position.set( 500, 800, 1300 );
-controls.update();
-		
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xf0f0f0 );
 
@@ -213,7 +210,7 @@ controls.update();
 
 			function render() {
 				renderer.render( scene, camera );
-					requestAnimationFrame( animate );
+		
 			}
 			
 		
