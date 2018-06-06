@@ -18,7 +18,7 @@
 	<body>
 
 		<script src="js/three.js"></script>
-<script src="js/FirstPersonControls.js"></script>
+<script src="js/OrbitControls.js"></script>
 		<script src="js/Detector.js"></script>
 
 		<script>
@@ -54,7 +54,7 @@
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
 				camera.position.set( 0, 32 ,0 );
 				camera.lookAt( new THREE.Vector3() );
-  				controls = new THREE.FirstPersonControls( camera );
+  				controls = new THREE.OrbitControls( camera );
 				scene.add( controls.getObject() );
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xf0f0f0 );
@@ -212,62 +212,11 @@
 			}
 
 			function render() {
-				playerControls();
 				renderer.render( scene, camera );
 				
 			}
 			
-			function playerControls () {
-
-				// Are the controls enabled? (Does the browser have pointer lock?)
-				if ( controls.controlsEnabled ) {
-
-					// Save the current time
-					var time = performance.now();
-					// Create a delta value based on current time
-					var delta = ( time - prevTime ) / 1000;
-
-					// Set the velocity.x and velocity.z using the calculated time delta
-					velocity.x -= velocity.x * 10.0 * delta;
-					velocity.z -= velocity.z * 10.0 * delta;
-
-					// As velocity.y is our "gravity," calculate delta
-					velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
-
-					if ( controls.moveForward ) {
-						velocity.z -= 400.0 * delta;
-					}
-
-					if ( controls.moveBackward ) {
-						velocity.z += 400.0 * delta;
-					}
-
-					if ( controls.moveLeft ) {
-						velocity.x -= 400.0 * delta;
-					}
-
-					if ( controls.moveRight ) {
-						velocity.x += 400.0 * delta;
-					}
-
-					// Update the position using the changed delta
-					controls.getObject().translateX( velocity.x * delta );
-					controls.getObject().translateY( velocity.y * delta );
-					controls.getObject().translateZ( velocity.z * delta );
-
-					// Prevent the camera/player from falling out of the 'world'
-					if ( controls.getObject().position.y < 10 ) {
-
-						velocity.y = 0;
-						controls.getObject().position.y = 10;
-
-					}
-
-					// Save the time for future delta calculations
-					prevTime = time;
-
-				}
-			}
+		
 function setImage() {
 var e = document.getElementById("blk");
 var value = e.options[e.selectedIndex].value;
