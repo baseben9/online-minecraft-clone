@@ -52,9 +52,7 @@
 				container.appendChild( info );
 camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
 camera.position.set( 500, 800, 1300 );
-camera.lookAt(0,0,0);
-		var controls = new THREE.OrbitControls( camera );
-controls.update();
+camera.lookAt(0,0,0)
 
 		
 				scene = new THREE.Scene();
@@ -149,6 +147,8 @@ controls.update();
 
 			function onDocumentMouseDown( event ) {
 
+				event.preventDefault();
+
 				mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
 				raycaster.setFromCamera( mouse, camera );
@@ -173,7 +173,7 @@ controls.update();
 
 					// create cube
 
-					} else if( event.altKey ) {
+					} else {
 
 						var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 						voxel.position.copy( intersect.point ).add( intersect.face.normal );
@@ -211,10 +211,8 @@ controls.update();
 			}
 
 			function render() {
-				requestAnimationFrame( animate );
 				renderer.render( scene, camera );
-			};
-
+			}
 			
 		
 function setImage() {
