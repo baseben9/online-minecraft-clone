@@ -35,7 +35,7 @@
 			var objects = [];
 
 			init();
-			animate();
+			render();
 
 			function init() {
 				
@@ -149,8 +149,6 @@ controls.update();
 
 			function onDocumentMouseDown( event ) {
 
-				event.preventDefault();
-
 				mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
 				raycaster.setFromCamera( mouse, camera );
@@ -186,7 +184,7 @@ controls.update();
 
 					}
 
-					animate();
+					render();
 
 				}
 
@@ -212,7 +210,7 @@ controls.update();
 
 			}
 
-			var animate = function () {
+			function render() {
 				requestAnimationFrame( animate );
 				renderer.render( scene, camera );
 			};
